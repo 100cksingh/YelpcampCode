@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV!=="production"){
+    require('dotenv').config();
+}
+// console.log(process.env.SECRET)
+// console.log(process.env.API_KEY)
+
 const express=require('express');
 const path=require('path')
 // const app=express();
@@ -28,6 +34,9 @@ db.on("error",console.error.bind(console,"connection error"));
 db.once("open",()=>{
     console.log("Database connected");
 });
+
+
+
 const app=express();
 
 app.engine('ejs',ejsMate);
