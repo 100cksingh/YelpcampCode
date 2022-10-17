@@ -20,7 +20,7 @@ const sample=array=>array[Math.floor(Math.random()*array.length)];
 
 const seedDB=async ()=>{
     await Campground.deleteMany({});
-    for(let i=0;i<50;i++){
+    for(let i=0;i<300;i++){
         const random1000=Math.floor(Math.random()*1000);
         const price=Math.floor(Math.random()*20)+10;
         const camp=new Campground({
@@ -30,6 +30,14 @@ const seedDB=async ()=>{
             // image:'https://source.unsplash.com/collection/483251/1600x900',
             description:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempore accusantium commodi harum aspernatur, quibusdam praesentium deserunt doloremque optio error nisi eligendi iure dolorum ea exercitationem. Fugiat sequi esse sunt.',
             price,
+            geometry:{
+                type:"Point",
+                // coordinates: [ 77.187293, 32.245461 ] //for any country map locatin camps.
+                coordinates: [ 
+                    cities[random1000].longitude,
+                    cities[random1000].latitude,
+                ] 
+            },
             images:[
                 {
                         url: 'https://res.cloudinary.com/dyfld3kte/image/upload/v1663729962/YelpCamp1/idipivrlusxteil0a07b.jpg',
