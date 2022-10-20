@@ -18,6 +18,8 @@ const passport=require('passport');
 const LocalStrategy=require('passport-local');
 const User=require('./models/user');
 // const { findByIdAndDelete } = require('./models/campground');
+
+const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes=require('./routes/users');
 const campgroundRoutes=require('./routes/campgrounds');
 const reviewRoutes=require('./routes/reviews');
@@ -75,6 +77,11 @@ app.use(express.static(path.join(__dirname,'public')))
 //         next();
 //     }
 // }
+
+app.use(mongoSanitize({
+    replaceWith: '_',
+}
+));
 const sessionConfig={
     secret:'thisshouldbeabettersecret',
     resave:false,
@@ -100,6 +107,7 @@ app.use((req,res,next)=>{
     //     // console.log(req.originalUrl);
     //     req.session.returnTo=req.originalUrl;
     // }
+    console.log(req.query);
     res.locals.currentUser=req.user;
     res.locals.success=req.flash('success');
     res.locals.error=req.flash('error');
@@ -124,6 +132,7 @@ app.use((req,res,next)=>{
 //     const newUser=await User.register(user,'chicken');
 //     res.send(newUser);
 // })
+
 
 app.use('/',userRoutes)
 app.use('/campgrounds',campgroundRoutes)

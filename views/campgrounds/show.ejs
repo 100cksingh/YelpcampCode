@@ -31,13 +31,13 @@
          
          <div class="card mb-3">
              <div class="card-body">
-                 <h5 class="card-title"><%= campground.title%></h5>
-                 <p class="card-text"><%= campground.description%></p>
+                 <h5 class="card-title"><%=campground.title%></h5>
+                 <p class="card-text"><%=campground.description%></p>
              </div>
              <ul class="list-group list-group-flush">
-                 <li class="list-group-item text-muted"><%= campground.location%></li>
-                 <li class="list-group-item">Submitted by <%= campground.author.username%></li>
-                 <li class="list-group-item">$<%= campground.price%>/night</li>
+                 <li class="list-group-item text-muted"><%=campground.location%></li>
+                 <li class="list-group-item">Submitted by <%=campground.author.username%></li>
+                 <li class="list-group-item">$<%=campground.price%>/night</li>
              </ul>
              <%  if( currentUser && campground.author.equals(currentUser._id))  {%>
              <div class="card-body">
@@ -86,11 +86,11 @@
          <% for(let review of campground.reviews) { %>
          <div class="card mb-3 ">
              <div class="card-body">
-                 <h5 class="card-title"> <%= review.author.username%></h5>
+                 <h5 class="card-title"> <%=review.author.username%></h5>
                  <p class="starability-result" data-rating="<%=review.rating%>">
                      Rated: <%= review.rating %> stars
                  </p>
-                 <p class="card-text">Review: <%= review.body %></p>
+                 <p class="card-text">Review: <%=review.body %></p>
                  <%  if( currentUser && review.author.equals(currentUser._id))  {%>
                  <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                      <button class="btn btn-sm btn-danger">Delete</button>
