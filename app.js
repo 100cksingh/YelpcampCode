@@ -100,7 +100,7 @@ const sessionConfig={
 }
 app.use(session(sessionConfig))
 app.use(flash());
-// app.use(helmet());
+app.use(helmet());
 // app.use(helmet({contentSecurityPolicy:false}));
 
 const scriptSrcUrls = [
@@ -141,7 +141,7 @@ app.use(
                 "blob:",
                 "data:",
                 "https://res.cloudinary.com/dyfld3kte/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
-                "https://images.unsplash.com/",
+                "https://images.unsplash.com",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
