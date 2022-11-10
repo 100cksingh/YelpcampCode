@@ -142,6 +142,7 @@ app.use(
                 "data:",
                 "https://res.cloudinary.com/dyfld3kte/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
                 "https://images.unsplash.com",
+                "https://media.istockphoto.com",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
@@ -281,6 +282,7 @@ app.use((err,req,res,next)=>{
     if(!err.message)err.message='oh No, Something Went Wrong!'
     res.status(statusCode).render('error',{err})
 })
+
 
 app.listen(3000,()=>{
     console.log('Serving on port 3000')
