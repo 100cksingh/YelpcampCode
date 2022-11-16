@@ -1,7 +1,8 @@
 body{
     height: 100vh;
     background-image:
-    url("https://media.istockphoto.com/id/983354326/photo/campfire-next-to-a-tent-at-night.jpg?s=612x612&w=0&k=20&c=6EGhVl-s-79JoWYJ2kKNZRk7eRQmoAlZSoRYUzHLm3A=");
+    url(camp2.jpg);
+    /* url("https://media.istockphoto.com/photos/friends-hikers-sitting-beside-camp-and-tents-in-the-night-picture-id678554980?k=20&m=678554980&s=612x612&w=0&h=Dah3dQrfNNSYk0iLCMMS1y02TDtfZKUSMzhJUugrFY0="); */
     /* url("https://res.cloudinary.com/dyfld3kte/image/upload/v1667756651/YelpCamp1/zzxyjdpfj3fxecr5krh0.jpg"); */
     background-size: cover;
     background-position: center;
